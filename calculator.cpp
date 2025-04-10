@@ -119,7 +119,7 @@ double parse_number(const std::string &expression) {
         }
         return number;
     } else {
-        std::cout << "Invalid input" << "\n";
+        std::cout << "Invalid input, big sad" << "\n";
         return 0;
     }
 }
