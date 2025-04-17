@@ -13,13 +13,11 @@ bool is_number(const std::string &expression) {
                 if (expression[n] == '.') {
                     decimalcounter++;
                 } else {
-                std::cout << "Invalid input, big happy" << "\n";
                 return false;
                 }
             }
         } else if (n == (length-1)){
             if ((expression[n] != '0') or (expression[n] != '1') or(expression[n] != '2') or (expression[n] != '3') or (expression[n] != '4') or (expression[n] != '5') or (expression[n] != '6') or(expression[n] != '7') or (expression[n] != '8') or (expression[n] != '9') ) {
-                std::cout << "Invalid input, big mad" << "\n";
                 return false;
             }
         } else {
@@ -27,14 +25,13 @@ bool is_number(const std::string &expression) {
                 if (expression[n] == '.') {
                     decimalcounter++;
                 } else {
-                    std::cout << "Invalid input, mad happy" << "\n";
                     return false;
                 }
             }
         }
+        n++;
     }
     if (decimalcounter > 1) {
-        std::cout << "Invalid input, not happy" << "\n";
         return false;
     } else {
         return true;
