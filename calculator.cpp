@@ -115,11 +115,12 @@ double parse_number(const std::string &expression) {
                 if ((decimal_counter == 0) && (i != (length-1))) {
                     decimal_counter++;
                     continue;
-                } else {std::cout << "Invalid input" << "\n";
-                return 0;
+                } else {
+                    std::cout << "Invalid input" << "\t";
+                    return 0;
                 }
             } else {
-                std::cout << "Invalid input" << "\n";
+                std::cout << "Invalid input" << "\t";
                 return 0;
             }
         }
