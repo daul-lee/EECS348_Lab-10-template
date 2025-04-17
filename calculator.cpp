@@ -10,10 +10,19 @@ double parse_number(const std::string &expression) {
     int pre_decimal_digits;
     int decimal_counter = 0;
     int j = 0;
+    int sign_counter = 0;
     if ((expression[0] == '+') || (expression[0] == '-') || (expression[0] == '0')) {
         for (int i = 0; i < length; i++) {
             if ((expression[i] == '+') || (expression[i] == '-') || (expression[i] == '0')) {
                 position++; 
+                if ((expression[i] == '+') || (expression[i] == '-')) {
+                    if (sign_counter == 0) {
+                        sign_counter++;
+                    } else {
+                        std::cout << "Invalid number";
+                        return 0;
+                    }
+                }
             } else {
                 break;
             }
@@ -30,6 +39,7 @@ double parse_number(const std::string &expression) {
         if (decimal_counter == 0) {
             pre_decimal_digits = short_length-1;
         }
+        decimal_counter = 0; 
         for (int i = 0; i < short_length; i++) {
             if (short_number[i] == '1') {
                 number = number + 1 * pow(10, pre_decimal_digits-j);
@@ -62,7 +72,16 @@ double parse_number(const std::string &expression) {
                 number = number + 0 * pow(10, pre_decimal_digits-j);
                 j++;
             } else if (short_number[i] == '.') {
-                continue;
+                if (decimal_counter == 0) {
+                    decimal_counter++;
+                    continue;
+                } else {
+                    std::cout << "Invalid number";
+                    return 0;
+                }
+            } else {
+                std::cout << "Invalid number";
+                return 0;
             }
         }
         if (expression[0] == '-') {
@@ -79,6 +98,7 @@ double parse_number(const std::string &expression) {
         if (decimal_counter == 0) {
             pre_decimal_digits = length-1;
         }
+        decimal_counter == 0;
         for (int i = 0; i < length; i++) {
             if (expression[i] == '1') {
                 number = number + 1 * pow(10, pre_decimal_digits-j);
@@ -111,7 +131,16 @@ double parse_number(const std::string &expression) {
                 number = number + 0 * pow(10, pre_decimal_digits-j);
                 j++;
             } else if (expression[i] == '.') {
-                continue;
+                if (decimal_counter == 0) {
+                    decimal_counter++;
+                    continue;
+                } else {
+                    std::cout << "Invalid number";
+                    return 0;
+                }
+            } else {
+                std::cout << "Invalid number";
+                return 0;
             }
         }
     }
