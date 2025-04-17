@@ -15,14 +15,13 @@ double parse_number(const std::string &expression) {
             if ((expression[i] == '+') || (expression[i] == '-') || (expression[i] == '0')) {
                 position++; 
             } else {
-                std::cout<< "break";
                 break;
             }
         }
         short_number = expression.substr(position, length);
         int short_length = short_number.size();
         for (int i = 0; i < short_length; i++) {
-            if (expression[i] == '.') {
+            if (short_number[i] == '.') {
                 pre_decimal_digits = i-1;
                 decimal_counter += 1;
                 break;
@@ -32,37 +31,37 @@ double parse_number(const std::string &expression) {
             pre_decimal_digits = short_length-1;
         }
         for (int i = 0; i < short_length; i++) {
-            if (expression[i] == '1') {
+            if (short_number[i] == '1') {
                 number = number + 1 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '2') {
+            } else if (short_number[i] == '2') {
                 number = number + 2 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '3') {
+            } else if (short_number[i] == '3') {
                 number = number + 3 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '4') {
+            } else if (short_number[i] == '4') {
                 number = number + 4 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '5') {
+            } else if (short_number[i] == '5') {
                 number = number + 5 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '6') {
+            } else if (short_number[i] == '6') {
                 number = number + 6 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '7') {
+            } else if (short_number[i] == '7') {
                 number = number + 7 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '8') {
+            } else if (short_number[i] == '8') {
                 number = number + 8 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '9') {
+            } else if (short_number[i] == '9') {
                 number = number + 9 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '0') {
+            } else if (short_number[i] == '0') {
                 number = number + 0 * pow(10, pre_decimal_digits-j);
                 j++;
-            } else if (expression[i] == '.') {
+            } else if (short_number[i] == '.') {
                 continue;
             }
         }
