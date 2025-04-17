@@ -98,7 +98,7 @@ double parse_number(const std::string &expression) {
         if (decimal_counter == 0) {
             pre_decimal_digits = length-1;
         }
-        decimal_counter == 0;
+        decimal_counter = 0;
         for (int i = 0; i < length; i++) {
             if (expression[i] == '1') {
                 number = number + 1 * pow(10, pre_decimal_digits-j);
